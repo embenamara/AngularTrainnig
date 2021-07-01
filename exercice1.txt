@@ -1,0 +1,54 @@
+function ShoppingList() {
+    this.groceries = []
+}
+
+ShoppingList.prototype.add = function(item: string) {
+    this.groceries = this.groceries.concat(item)
+}
+
+ShoppingList.prototype.remove = function(item: string) {
+    this.groceries = this.groceries.filter(function(grocery){
+        return item != grocery
+    })
+}
+
+var myList = new ShoppingList();
+
+myList.add('test');
+myList.add('test1');
+myList.add('test2');
+
+console.log(myList.groceries);
+
+myList.remove('test');
+
+console.log(myList.groceries);
+
+class ShoppingList2 {
+    groceries: string[];
+
+    constructor() {
+        this.groceries = [1 ,2, 3];
+    }
+
+    public addItem(item: string) {
+        this.groceries = [...this.groceries, item];
+    }
+
+    public removeItem(item: string) {
+        this.groceries = this.groceries.filter(grocery => item != grocery)
+    }
+}
+
+var myList2 = new ShoppingList2();
+
+myList2.addItem('test');
+myList2.addItem('test1');
+myList2.addItem('test2');
+
+console.log(myList2.groceries);
+
+myList2.removeItem('test');
+
+console.log(myList2.groceries)
+
